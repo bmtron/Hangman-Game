@@ -103,7 +103,7 @@ class Word {
 		userInput = in.nextLine();
 		
 		guessWord = userInput.toCharArray();//adds the individual characters of the guess word to an array of characters
-		
+		gList = guessWord;
 	}
 	
 	
@@ -120,6 +120,7 @@ class Word {
 		guess = in.next().charAt(0);
 		
 		gList = new char[guessWord.length];
+		
 		for (int i = 0; i < guessWord.length; i++){
 			if (!(guess == guessWord[i])){
 				count++;
@@ -127,7 +128,11 @@ class Word {
 			else {
 				count = count;
 			}
+			if (guess == guessWord[i]){
+				guessWord[i] = ' ';
+			}
 		}
+		
 		if (count == guessWord.length){
 			loseCount++;
 			if (loseCount == 1){
@@ -157,6 +162,7 @@ class Word {
 				winCount++;
 				
 				System.out.println("Correct!");
+				h.getGrid();
 				
 			}
 		
